@@ -1,0 +1,52 @@
+[패키지]
+= 모듈을 폴더(Directory)로 구분하여 관리하는 것이다.
+
+why? 모듈을 편리하게 관리하기 위해서 필요하다.
+
+패키지 속 모듈 사용하는 방법
+    ex) User 폴더 - cal.py - 함수plus()
+    방법 1. import를 이용해서 폴더를 불러온 후 함수를 실행한다.
+            import user.cal
+            print(cal.plus(3,4))
+    
+    방법 2. from-import 사용 함수/변수 사용시 .를 써주지 않아도 된다.
+            from A(모듈) import B(함수)
+            from user.cal import plus 
+            print(plus(3,4))
+            #cal.plus()라고 적어주지 않아도 된다.
+
+    #from a import b : a 모듈(혹은 패키지)에서 b 함수를 가져오겠다. b를 사용하기 위해선 b() 꼴 로 사용 가능하다.
+    #import a : a 모듈을 불러오겠다. a 모듈 안에있는 b 함수를 사용하기 위해선 a.b() 꼴로 사용해야한다.
+
+      1. from a import b를 이용해서 random의 randrange()를 불러와봅시다.
+      2. import a를 이용해서 math 모듈을 불러와봅시다.
+      3. 변수 var1에 randrange 함수를 이용해 1이상 10이하의 임의의 정수를 넣어봅시다.
+      4. 변수 var2에 math.log 함수를 이용해 "log72518" 값을 넣어봅시다.
+      5. var1, var2를 출력하여 결과값을 확인해봅시다.
+      Tip!
+      random.randrange(x, y) 함수는 x부터 y-1까지의 숫자에서 임의의 숫자를 하나 반환합니다.
+
+from random import randrange
+import math
+
+var1 = randrange(1, 11)
+var2 = math.log(5184, 72)
+
+ex) 웹페이지가 어떻게 구성되어 있는지 확인해봅시다.
+
+    1.Python에서는 쉽게 웹페이지의 정보를 가져올 수 있는 urllib패키지를 제공합니다. 이 중에서 urllib.request.urlopen 함수는 해당 url의 html 파일을 가져옵니다.
+      위 함수를 이용해서 https://en.wikipedia.org/wiki/Lorem_ipsum 홈페이지의 정보를 가져와봅시다.
+    2. from-import를 이용해서 urllib패키지 안 request 모듈에서 urlopen 함수를 불러오는 코드를 작성해봅시다.
+      다음 주소를 urlopen하고, read() 한 다음, 이를 utf-8으로 decode 한 결과를 변수 webpage에 넣어봅시다.
+    3. 변수 webpage를 출력해봅시다. 무엇이 나오나요?
+
+    Tips!
+    urlopen() : 이 함수에 url을 넣으면 해당 url에 접근한 결과를 얻을 수 있습니다.
+    read() : 결과를 해독하여 문자열로 반환합니다.
+    decode() : 문자열을 특정 인코딩 방식으로 해독합니다. (유니코드, 아스키 코드 등)
+    
+from urllib.request import urlopen
+
+webpage = urlopen("https://en.wikipedia.org/wiki/Lorem_ipsum").read().decode("utf-8")
+
+print(webpage)
