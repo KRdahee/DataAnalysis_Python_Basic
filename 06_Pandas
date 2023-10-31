@@ -1,0 +1,50 @@
+Pandas 
+= 파이썬 라이브러리. 구조화된 데이터를 효과적을 처리하고 저장. Array 계산에 특화된 Numpy를 기반으로 설계. 
+
+Numpy의 array가 보강된 형태. Data와 Index를 가지고 있음.
+
+import pandas as pd
+data = pd.Series([1,2,3,4])
+print(data)
+
+Series
+= 값을 nDarray 형태로 가지고 있음. 인덱스를 지정할 수 있고 인덱스로 접근 가능
+
+dtype
+=인자로 데이터 타입을 지정할 수 있음.
+
+Series 데이터
+Series 데이터란 Numpy array가 보강된 형태로, Data와 index를 가지고 있는 데이터 형식입니다.
+
+주어진 예시는 Series 데이터를 만드는 방법입니다.
+
+이번 실습에서는 딕셔너리를 이용해서 인덱스와 값을 지정하여 Series 데이터를 직접 만들어봅시다.
+
+딕셔너리의 값
+korea : 5180
+japan : 12718
+china : 141500
+usa : 32676
+
+딕셔너리를 이용하여 국가별 인구 수 데이터를 시리즈로 만들어 country라는 변수에 저장해주세요.
+
+그 다음 country 변수를 출력해주세요.
+
+Tips!
+pandas의 Series 객체를 만들기 위해, ‘값’과 ‘인덱스’ 매개변수를 각각 넣어주는 방법도 있고,
+딕셔너리를 매개변수로 넣어주는 방법도 있습니다.
+
+import numpy as np
+import pandas as pd
+
+# 예시) 시리즈 데이터를 만드는 방법.
+# series = pd.Series([1,2,3,4], index = ['a', 'b', 'c', 'd'], name="Title")
+# print(series, "\n")
+
+
+# 국가별 인구 수 시리즈 데이터를 딕셔너리를 사용하여 만들어보세요.
+country = pd.Series([ 5180, 12718, 141500, 32676], index = ['korea', 'japan', 'china', 'usa'], name="country")
+print(country, "\n")
+답안 코드
+
+
