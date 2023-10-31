@@ -1,0 +1,76 @@
+DataFrame
+= 여러개의 Series가 모여서 행과 열을 이른 데이터.
+  Dictionary를 활용하여 Data Frame 생성 가능.
+
+DataFrame 속성 확인 방법
+print(country.shape)
+print(country.size)
+print(country.ndim)
+print(country.values)
+
+Data Frame - index, columns 이름 지정
+counrty.index.name = " Country "
+country.columns.name = " Info "
+
+데이터 프레임 저장 및 불러오기 가능
+country.to_csv("./country.cvs")
+country.to_excel(".country.xlsx")
+
+country = pd.read_csv("./country.cvs")
+country = pd.read_excel(".country.xlsx")
+
+[데이터프레임]
+시리즈 데이터는 하나의 컬럼 값으로 이루어진 반면 데이터 프레임은 여러 개의 컬럼 값을 가질 수 있습니다.
+
+이번 실습에서는 여러 개의 시리즈 데이터를 이용하여 데이터 프레임을 만드는 법을 배워봅니다.
+
+오른쪽 예제에 있는 국가별 GDP 시리즈 데이터와, 국가별 인구 시리즈 데이터를 이용하여 GDP와 인구 데이터를 모두 나타내는 데이터 프레임을 만들어 보세요!
+
+국가별 인구를 나타내는 시리즈 데이터인 population과 국가별 GDP를 나타내는 시리즈 데이터인 gdp가 있습니다.
+두 시리즈 데이터로 country라는 데이터 프레임을 만드세요. 반드시 population, gdp의 순서로 만들어주셔야 합니다.
+
+Tip!
+데이터 프레임 country의 인덱스, 컬럼도 확인해보세요!
+
+print(country.index)
+print(country.columns)
+Copy
+답안 코드
+import numpy as np
+import pandas as pd
+
+print("Population series data:")
+population_dict = {
+    'korea': 5180,
+    'japan': 12718,
+    'china': 141500,
+    'usa': 32676
+}
+population = pd.Series(population_dict)
+print(population, "\n")
+
+print("GDP series data:")
+gdp_dict = {
+    'korea': 169320000,
+    'japan': 516700000,
+    'china': 1409250000,
+    'usa': 2041280000,
+}
+gdp = pd.Series(gdp_dict)
+print(gdp, "\n")
+
+
+# 이곳에서 2개의 시리즈 값이 들어간 데이터프레임을 생성합니다.
+print("Country DataFrame")
+
+country = pd.DataFrame({
+    "population" : population,
+    "gdp" : gdp
+})
+print(country)
+
+[데이터 선택]
+.loc : 명시적인 인덱스를 참조하는 인덱싱/슬라이싱
+.iloc : 파이썬 스타일의 정수 인덱스 인덱싱/슬라이싱
+
+컬럼명을 활용하여 dataframe에서 데이터 선택이 가능
